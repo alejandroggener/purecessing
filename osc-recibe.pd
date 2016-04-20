@@ -1,0 +1,65 @@
+#N canvas 662 48 518 632 10;
+#X declare -lib cyclone -lib unauthorized;
+#X obj -413 610 cnv 15 500 15 empty empty empty 20 12 0 22 -261135
+-66577 0;
+#X obj -407 607 comment 0 14 Verdana ? 0 100 100 100 www.matiasrc.com.ar
+;
+#X obj -56 607 comment 0 14 Verdana ? 0 100 100 100 www.biopus.com.ar
+;
+#X obj -412 3 cnv 15 500 50 empty empty empty 20 12 0 22 -261135 -66577
+0;
+#X obj -406 33 comment 0 14 Verdana ? 0 100 100 100 recibe osc;
+#X obj -408 -2 comment 0 25 Verdana ? 0 50 50 50 pd tutorial;
+#X obj -74 33 comment 0 14 Verdana ? 0 100 100 100 Matias Romero Costas
+;
+#X obj -227 371 grid grid1 200 0 1 200 0 1 1 0.01 0.01 10 10 -59.5
+518.5;
+#X floatatom -34 582 5 0 0 0 - - -;
+#X floatatom -227 581 5 0 0 0 - - -;
+#X text -186 582 X;
+#X text -51 581 Y;
+#X obj -88 66 import cyclone unauthorized;
+#X obj -404 166 dumpOSC 11112;
+#X obj -404 313 unpack f f;
+#X floatatom -404 343 5 0 0 0 - - -;
+#X floatatom -365 343 5 0 0 0 - - -;
+#X obj -325 313 unpack f f;
+#X floatatom -325 343 5 0 0 0 - - -;
+#X floatatom -286 343 5 0 0 0 - - -;
+#X obj -317 223 print rejected;
+#X obj -404 197 OSCroute /mouse;
+#X obj -404 272 OSCroute /posicion /posNorm;
+#X text -394 357 x;
+#X text -355 357 y;
+#X text -325 358 xNorm;
+#X text -285 358 yNorm;
+#X text -320 163 --> recibe los mensajes osc por el;
+#X text -296 174 puerto especificado en el argumento;
+#X text -400 247 --> devuelve los mensajes que comienzan con /mouse
+;
+#X text -225 222 --> devuelve los mensajes que no comienzan con /mouse
+;
+#X text -407 80 recibe mensaje de tipo osc del tipo:;
+#X text -191 97 /mouse/posicion x y;
+#X text -192 114 /mouse/posNorm x (normalizado) y (normalizado);
+#X obj -325 462 pack f f;
+#X msg -305 431 bang;
+#X msg -325 487 values \$1 \$2;
+#X obj -314 407 expr 1 - $f1;
+#X connect 7 0 9 0;
+#X connect 7 1 8 0;
+#X connect 13 0 21 0;
+#X connect 14 0 15 0;
+#X connect 14 1 16 0;
+#X connect 17 0 18 0;
+#X connect 17 1 19 0;
+#X connect 18 0 34 0;
+#X connect 19 0 37 0;
+#X connect 21 0 22 0;
+#X connect 21 1 20 0;
+#X connect 22 0 14 0;
+#X connect 22 1 17 0;
+#X connect 34 0 36 0;
+#X connect 35 0 34 0;
+#X connect 36 0 7 0;
+#X connect 37 0 34 1;
