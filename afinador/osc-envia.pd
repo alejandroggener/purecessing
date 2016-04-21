@@ -1,0 +1,47 @@
+#N canvas 52 28 525 539 10;
+#X declare -lib cyclone -lib unauthorized;
+#X msg 19 431 [;
+#X msg -187 431 ];
+#X msg -282 430 disconnect;
+#X obj -187 402 t b list b;
+#X obj -347 369 loadbang;
+#X obj -187 371 pack;
+#X obj -155 344 t b f;
+#X obj -220 480 sendOSC;
+#X obj -413 510 cnv 15 500 15 empty empty empty 20 12 0 22 -261135
+-66577 0;
+#X obj -407 507 comment 0 14 Verdana ? 0 100 100 100 www.matiasrc.com.ar
+;
+#X obj -56 507 comment 0 14 Verdana ? 0 100 100 100 www.biopus.com.ar
+;
+#X obj -412 3 cnv 15 500 50 empty empty empty 20 12 0 22 -261135 -66577
+0;
+#X obj -406 33 comment 0 14 Verdana ? 0 100 100 100;
+#X obj -408 -2 comment 0 25 Verdana ? 0 50 50 50 prueba envio a processing
+1;
+#X obj -407 31 comment 0 14 Verdana ? 0 100 100 100 envio osc;
+#X obj -277 101 grid grid1 200 0 1 200 0 1 1 0.01 0.01 10 10 -102 124
+;
+#X floatatom -84 312 5 0 0 0 - - -;
+#X floatatom -277 318 5 0 0 0 - - -;
+#X text -236 312 X;
+#X text -101 311 Y;
+#X obj -78 66 import cyclone unauthorized;
+#X msg -159 431 send /x \$1 \, send /y \$2;
+#X msg -347 402 connect localhost 11111;
+#X connect 0 0 7 0;
+#X connect 1 0 7 0;
+#X connect 2 0 7 0;
+#X connect 3 0 1 0;
+#X connect 3 1 21 0;
+#X connect 3 2 0 0;
+#X connect 4 0 22 0;
+#X connect 5 0 3 0;
+#X connect 6 0 5 0;
+#X connect 6 1 5 1;
+#X connect 15 0 17 0;
+#X connect 15 1 16 0;
+#X connect 16 0 6 0;
+#X connect 17 0 5 0;
+#X connect 21 0 7 0;
+#X connect 22 0 7 0;
